@@ -21,8 +21,8 @@ class LoginLogic extends Logic
     public static function login($params)
     {
         $config = [
-            'app_id' => 'wx18de60cc2f0b2af4',
-            'secret' => 'e1b2fcf261338d753b23080f22c471b1',
+            'app_id' => config('wechat.mini.app_id'),
+            'secret' => config('wechat.mini.secret'),
         ];
         $app = Factory::miniProgram($config);
         $info = $app->auth->session($params['code']);
@@ -83,8 +83,8 @@ class LoginLogic extends Logic
         abort_if($user, 500, '您已注册用户，请直接登录！');
 
         $config = [
-            'app_id' => 'wx18de60cc2f0b2af4',
-            'secret' => 'e1b2fcf261338d753b23080f22c471b1',
+            'app_id' => config('wechat.mini.app_id'),
+            'secret' => config('wechat.mini.secret'),
         ];
         $app = Factory::miniProgram($config);
         // 判断是否解析出手机号码
